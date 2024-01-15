@@ -18,13 +18,13 @@ This sample demonstrates how to use the Azure Storage SDK in the context of an [
 Clone the repository to your machine:
 
 ```bash
-git clone https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node.git
+git clone https://github.com/Azure-Samples/storage-management-blog-node.git
 ```
 
-Change into the `storage-blob-upload-from-webapp-node` folder:
+Change into the `storage-management-blog-node` folder:
 
 ```bash
-cd storage-blob-upload-from-webapp-node
+cd storage-management-blog-node
 ```
 
 Install dependencies via `npm`:
