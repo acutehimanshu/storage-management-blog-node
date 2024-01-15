@@ -1,0 +1,123 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<h1>Image Resizer</h1>
+
+<h2>Upload photos</h2>
+<form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+    <div class="upload-container">
+        <label for="image">Select and image to upload: </label>
+        <input id="file-picker" type="file" name="media">
+    </div>
+    <div>
+        <input type="submit" value="Upload">
+    </div>
+</form>
+
+<p id="message">{{message}}</p>
+{{const FileTypes = ["image/png", "image/jpeg", "image/gif","image/svg+xml","image/webp"]}}
+<h2>Generated Blob</h2>
+<div class="container">
+    <div class="row">
+        {{#each this.thumbnails}}
+        
+        
+        <div class="col-md-3" style="border:2px dotted;">
+            
+            <div class="col-md-12 text-center">
+                <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}" title="{{name}}" style="max-width: 200px; max-height:200px;">
+            </div>
+            <table class="table">
+                <tr >
+                    <td>{{name}}</td>
+                    <td style="text-align: right;"><button class="button-73" onclick="copyToClipboard('https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}');">Copy URL</button></td>
+                </tr>
+            </table>
+        </div>
+
+        {{/each}}
+    </div>
+</div>
+
+<script>
+    function copyToClipboard(text) {
+            var tempInput = document.createElement("input");
+            document.body.appendChild(tempInput);
+            tempInput.value = text;
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            alert("Text copied to clipboard: " + text);
+        }
+</script>
+
+<!-- HTML !-->
+<button class="button-73" role="button">Button 73</button>
+<style>
+/* CSS */
+.button-73 {
+  appearance: none;
+  background-color: #FFFFFF;
+  border-radius: 40em;
+  border-style: none;
+  box-shadow: #ADCFFF 0 -12px 6px inset;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -.24px;
+  margin: 0;
+  outline: none;
+  padding: 0.55rem 1rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-73:hover {
+  background-color: #FFC229;
+  box-shadow: #FF6314 0 -6px 8px inset;
+  transform: scale(1.125);
+}
+
+.button-73:active {
+  transform: scale(1.025);
+}
+
+@media (min-width: 768px) {
+  .button-73 {
+    font-size: 0.95rem;
+    padding: .55rem 1rem;
+  }
+}
+</style>
+
+
+
+
+<hr>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const message = document.getElementById('message');
+        const picker = document.getElementById('file-picker');
+
+        document.getElementById('upload-form').addEventListener('submit', (e) => {
+
+            message.innerText = '';
+
+            if (!picker.files.length) {
+                message.innerText = 'Please select blob to upload.';
+                e.preventDefault();
+                return false;
+            }
+        });
+
+    });
+</script>
