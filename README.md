@@ -1,4 +1,4 @@
-@we
+@we are
 ---
 page_type: sample
 languages:
