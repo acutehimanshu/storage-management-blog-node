@@ -1,4 +1,4 @@
-@we are here to make a project on storage from
+@we are here to make a project on storage from az
 ---
 page_type: sample
 languages:
